@@ -2,7 +2,6 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-const homebridge_1 = require("homebridge");
 let hap;
 const mqtt_1 = __importDefault(require("mqtt"));
 class AirQuality {
@@ -61,7 +60,7 @@ class AirQuality {
                     this.airQuality = 0; // unknown
                 }
                 this.log.info("AQI : " + this.airQuality);
-                this.deviceService.getCharacteristic(homebridge_1.Characteristic.AirQuality).updateValue(this.airQuality, undefined, 'fromSetValue');
+                this.deviceService.setCharacteristic(this.api.hap.Characteristic.AirQuality, this.airQuality);
             }
         });
         this.mqttClient.on("connect", () => {

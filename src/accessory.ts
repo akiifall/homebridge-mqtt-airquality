@@ -113,7 +113,7 @@ class AirQuality implements AccessoryPlugin {
         }
 
         this.log.info("AQI : " + this.airQuality);        
-        this.deviceService.getCharacteristic(Characteristic.AirQuality).updateValue(this.airQuality, undefined, 'fromSetValue');
+        this.deviceService.setCharacteristic(this.api.hap.Characteristic.AirQuality,this.airQuality);
       }
     });
 
