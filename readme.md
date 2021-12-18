@@ -1,1 +1,1 @@
-personal use only. sorry :)
+- Personal Air Quality Sensor Accessory with Local MQTT Server
